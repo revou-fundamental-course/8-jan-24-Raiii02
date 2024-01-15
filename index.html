@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Katik Persegi</title>
+  </head>
+  <body>
+    <header>
+      <h2>Katik Kalkulator Matematika</h2>
+    </header>
+
+    <main>
+      <h3>Welcome to Katik Persegi dan Persegi Panjang</h3>
+      <p>
+        Katik adalah kalkulator matematik sederhana yang dirancang khusus untuk
+        menghitung luas dan keliling persegi dan persegi panjang. Nikmati
+        pengalaman menghitung yang cepat dan mudah!
+      </p>
+      <nav>
+        <div class="dropdown">
+          <a href="#">Persegi</a>
+          <div class="dropdown-content">
+            <a href="#">Luas</a>
+            <a href="#">Keliling</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#">Persegi Panjang</a>
+          <div class="dropdown-content">
+            <a href="#">Luas</a>
+            <a href="#">Keliling</a>
+          </div>
+        </div>
+      </nav>
+      <input type="text" id="side" placeholder="Masukan Sisi" />
+      <button onclick="calculate()">Hitung</button>
+      <div class="result" id="result"></div>
+    </main>
+  </body>
+
+  <script src="./js/script.js"></script>
+</html>
