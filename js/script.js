@@ -19,3 +19,13 @@ function calculate() {
         <p>L = ${squareArea}</p>
     `;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  var dropdownBtn = document.querySelector(".dropdown-btn");
+  var dropdownContainer = document.querySelector(".dropdown-container");
+
+  dropdownBtn.addEventListener("click", function () {
+    dropdownContainer.style.display =
+      dropdownContainer.style.display === "block" ? "none" : "block";
+  });
+});

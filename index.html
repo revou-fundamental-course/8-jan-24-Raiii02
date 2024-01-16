@@ -1,44 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Katik Persegi</title>
-  </head>
-  <body>
-    <header>
-      <h2>Katik Kalkulator Matematika</h2>
-    </header>
 
-    <main>
-      <h3>Welcome to Katik Persegi dan Persegi Panjang</h3>
-      <p>
-        Katik adalah kalkulator matematik sederhana yang dirancang khusus untuk
-        menghitung luas dan keliling persegi dan persegi panjang. Nikmati
-        pengalaman menghitung yang cepat dan mudah!
-      </p>
-      <nav>
-        <div class="dropdown">
-          <a href="#">Persegi</a>
-          <div class="dropdown-content">
-            <a href="#">Luas</a>
-            <a href="#">Keliling</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <a href="#">Persegi Panjang</a>
-          <div class="dropdown-content">
-            <a href="#">Luas</a>
-            <a href="#">Keliling</a>
-          </div>
-        </div>
-      </nav>
-      <input type="text" id="side" placeholder="Masukan Sisi" />
-      <button onclick="calculate()">Hitung</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Katik Persegi</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="">
+      <img src="./img/Logo.png" class="logo" alt="">
+      <h2 class="title">Katik</h2>
+    </div>
+    <div class="">
+      <h2 class="title">Katik</h2>
+      <img src="./img/Logo.png" class="logo" alt="">
+    </div>
+  </header>
+
+
+  <section class="intro">
+    <h3 class="subtitle">Welcome to Katik Persegi dan Persegi Panjang</h3>
+    <p class="description">
+      Katik adalah kalkulator matematik sederhana yang dirancang khusus untuk
+      menghitung luas dan keliling persegi dan persegi panjang. Nikmati
+      pengalaman menghitung yang cepat dan mudah!
+    </p>
+  </section>
+
+  <main class="main">
+
+    <button class="button">
+      Try
+    </button>
+
+    <div class="calculator-section">
+      <aside class="shapes-menu">
+        <ul>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Persegi <i class="icon-arrow"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Luas</a></li>
+              <li><a href="#">Keliling</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Persegi Panjang <i class="icon-arrow"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Luas</a></li>
+              <li><a href="#">Keliling</a></li>
+            </ul>
+          </li>
+        </ul>
+    </aside>
+
+    <section class="calculator">
+      <input type="text" id="side" class="input-field" placeholder="Masukkan Sisi" />
+      <button onclick="calculate()" class="calculate-btn">Hitung</button>
       <div class="result" id="result"></div>
-    </main>
-  </body>
+    </section>
+    </div>
 
-  <script src="./js/script.js"></script>
+
+  </main>
+
+</body>
+
+<script src="./js/script.js"></script>
+
 </html>
