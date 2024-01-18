@@ -61,48 +61,6 @@ body {
   align-items: center;
 }
 
-.button {
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #1a1a1a;
-  border-radius: 15px;
-  color: #3b3b3b;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: normal;
-  margin: 0;
-  min-height: 60px;
-  min-width: 0;
-  outline: none;
-  padding: 16px 24px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
-  will-change: transform;
-}
-
-.button:disabled {
-  pointer-events: none;
-}
-
-.button:hover {
-  color: #fff;
-  background-color: #1a1a1a;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  transform: translateY(-2px);
-}
-
-.button:active {
-  box-shadow: none;
-  transform: translateY(0);
-}
-
 .calculator-section {
   display: flex;
   justify-content: space-around;
@@ -125,30 +83,28 @@ body {
 }
 
 .calculator {
-  width: 75%;
-  margin-right: 35px;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  background-color: #fff;
-  justify-content: center;
-  height: 70vh;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: none;
 }
 
-.input-field,
+.input-field {
+  width: 50%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
 .calculate-btn {
-  padding: 10px;
-  font-size: 16px;
-  margin: 5px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .result {
-  margin-top: 20px;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 ul {
@@ -164,7 +120,7 @@ ul {
   text-decoration: none;
   position: relative;
   width: 100%;
-  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .icon-arrow {
@@ -185,28 +141,25 @@ ul {
   text-decoration: none;
   position: relative;
   width: 100%;
-  border-radius: 10px;
 }
 
 .dropdown-menu a {
-  padding: 15px 20px 15px 30px;
+  padding: 15px 20px 15px 50px;
   color: #333;
   text-decoration: none;
   position: relative;
   width: 100%;
-  border-radius: 10px;
   display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-menu a:hover,
 .dropdown > a:hover {
   background-color: #ddd;
-  border-radius: 10px;
 }
 
 .active {
   background-color: #ddd;
-  border-radius: 10px;
 }
 
 /* Menambahkan kelas 'active-dropdown' saat dropdown diklik */
@@ -217,4 +170,35 @@ ul {
 /* Menambahkan kelas 'active-menu' saat menu dropdown diklik */
 .dropdown-menu a.active-menu {
   background-color: #ddd;
+}
+
+.activeSec {
+  display: flex;
+  width: 75%;
+  margin-right: 35px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #fff;
+  height: 70vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-square {
+  width: 200px;
+  height: auto;
+}
+
+.img-rectangle {
+  width: 400px;
+  height: auto;
+}
+
+.calculator p{
+  font-size: 1.5rem;
+  font-weight: 500;
 }

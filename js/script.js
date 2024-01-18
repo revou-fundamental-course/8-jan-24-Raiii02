@@ -1,26 +1,87 @@
-function calculate() {
-  // mengambil nilai sisi dari input
-  var side = parseFloat(document.getElementById("side").value);
+function calculate(sectionId, calculationType) {
+  var sectionElement = document.querySelector(
+    '[data-section="' + sectionId + '"]'
+  );
 
-  //Validasi nilai sisi adalah angka positif
-  if (isNaN(side) || side <= 0) {
-    alert("Masukan nilai sisi yang valid");
-    return;
+  var lengthValue = 0;
+  var breadthValue = 0;
+
+  if (sectionId.includes("Rectangle")) {
+    var lengthValue =
+      parseFloat(
+        sectionElement.querySelector(".input-field:nth-of-type(1)").value
+      ) || 0;
+    var breadthValue =
+      parseFloat(
+        sectionElement.querySelector(".input-field:nth-of-type(2)").value
+      ) || 0;
+  } else {
+    var sideValue =
+      parseFloat(sectionElement.querySelector(".input-field").value) || 0;
   }
 
-  // Menghitung rumus persegi
-  var squareArea = side * side;
+  if (sectionId.includes("Rectangle")) {
+    if (lengthValue <= 0 || breadthValue <= 0) {
+      alert("Masukkan angka yang lebih besar dari nol.");
+      return;
+    }
+  } else {
+    if (sideValue <= 0) {
+      alert("Masukkan angka yang lebih besar dari nol.");
+      return;
+    }
+  }
+  var result;
 
-  // Menampilkan rumus luas persegi, nilai sisi dan hasilnya
-  var result = document.getElementById("result");
-  result.innerHTML = `
-        <p>L = S x S</p>
-        <p>L = ${side} x ${side}</p>
-        <p>L = ${squareArea}</p>
-    `;
+  // Melakukan kalkulasi berdasarkan jenis perhitungan
+  if (calculationType === "areaRectangle") {
+    result = lengthValue * breadthValue || 0;
+  } else if (calculationType === "perimeterRectangle") {
+    result = 2 * (lengthValue + breadthValue) || 0;
+  } else if (calculationType === "areaSquare") {
+    result = sideValue * sideValue || 0;
+  } else if (calculationType === "perimeterSquare") {
+    result = 4 * sideValue || 0;
+  }
+
+  // Menampilkan hasil perhitungan
+  document.getElementById("result" + sectionId).innerText = "Hasil: " + result;
 }
 
-const accessToken = "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";
+function toggleDropdown(element) {
+  const parentLi = element;
+  parentLi.classList.toggle("open");
+  parentLi.classList.toggle("active-dropdown");
+}
+
+function showSection(sectionId) {
+  var sections = document.querySelectorAll(".calculator");
+  sections.forEach(function (section) {
+    section.classList.remove("activeSec");
+  });
+
+  var selectedSection = document.getElementById(sectionId);
+  selectedSection.classList.add("activeSec");
+}
+
+// Mendapatkan elemen calculator
+var calculatorSection = document.getElementById("SquareArea");
+
+// Menambahkan atau menghapus kelas 'hidden' saat diperlukan
+function toggleCalculator() {
+  calculatorSection.classList.toggle("hidden");
+}
+
+// Mengatur properti display menggunakan JavaScript
+function hideCalculator() {
+  calculatorSection.style.display = "none";
+}
+
+function showCalculator() {
+  calculatorSection.style.display = "flex";
+}
+
+const accessToken = "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";
 
 // Fungsi untuk mendapatkan informasi pengguna dari GitHub API
 async function fetchGitHubProfile() {
@@ -77,23 +138,3 @@ function openProfileLink(url) {
 
 // Memanggil fungsi fetchGitHubProfile saat halaman dimuat
 window.onload = fetchGitHubProfile;
-
-function toggleDropdown(element) {
-  const parentLi = element;
-  parentLi.classList.toggle("open");
-  parentLi.classList.toggle("active-dropdown");
-}
-
-function toggleMenu(event, element) {
-  const allMenuLinks = document.querySelectorAll(".dropdown-menu a");
-  allMenuLinks.forEach((link) => link.classList.remove("active-menu"));
-
-  element.classList.add("active-menu");
-
-  // Menampilkan tampilan saat menu dropdown diklik
-  const contentView = document.getElementById("content-view");
-  contentView.classList.toggle("visible");
-
-  // Menghentikan propogasi event klik agar dropdown tidak tertutup
-  event.stopPropagation();
-}

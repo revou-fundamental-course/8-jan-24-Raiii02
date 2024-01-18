@@ -28,51 +28,118 @@
     </section>
 
     <main class="main">
-      <button class="button" onclick="toggleSection()">Show Section</button>
-
       <div class="calculator-section" id="section">
         <aside class="aside">
           <ul>
             <li class="dropdown" onclick="toggleDropdown(this)">
               <a href="#">Persegi <i class="icon-arrow"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="toggleMenu(event, this)">Luas</a></li>
                 <li>
-                  <a href="#" onclick="toggleMenu(event, this)">Keliling</a>
+                  <a href="#" onclick="showSection('SquareArea')">Luas</a>
+                </li>
+                <li>
+                  <a href="#" onclick="showSection('SquarePerimeter')"
+                    >Keliling</a
+                  >
                 </li>
               </ul>
             </li>
             <li class="dropdown" onclick="toggleDropdown(this)">
               <a href="#">Persegi Panjang <i class="icon-arrow"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="toggleMenu(event, this)">Luas</a></li>
                 <li>
-                  <a href="#" onclick="toggleMenu(event, this)">Keliling</a>
+                  <a href="#" onclick="showSection('RectangleArea')">Luas</a>
+                </li>
+                <li>
+                  <a href="#" onclick="showSection('RectanglePerimeter')"
+                    >Keliling</a
+                  >
                 </li>
               </ul>
             </li>
           </ul>
         </aside>
 
-        <section class="calculator" id="SquareArea">
-          <input
-            type="text"
-            id="side"
-            class="input-field"
-            placeholder="Masukkan Sisi"
-          />
-          <button onclick="calculate()" class="calculate-btn">Hitung</button>
-          <div class="result" id="result"></div>
+        <section
+          class="calculator activeSec"
+          id="SquareArea"
+          data-section="SquareArea"
+        >
+          <h2>Luas Persegi</h2>
+          <img src="./img/Persegi.png" class="img-square" alt="" />
+          <p>L = Sisi * Sisi</p>
+          <input type="text" class="input-field" placeholder="Masukkan Sisi" />
+          <button
+            onclick="calculate('SquareArea', 'areaSquare')"
+            class="calculate-btn"
+          >
+            Hitung
+          </button>
+          <div class="result" id="resultSquareArea"></div>
         </section>
-        <section class="calculator" id="SquarePerimeter">
+
+        <section
+          class="calculator"
+          id="SquarePerimeter"
+          data-section="SquarePerimeter"
+        >
+          <h2>Keliling Persegi</h2>
+          <img src="./img/Persegi.png" class="img-square" alt="" />
+          <p>K = 4 * Sisi</p>
+          <input type="text" class="input-field" placeholder="Masukkan Sisi" />
+          <button
+            onclick="calculate('SquarePerimeter', 'perimeterSquare')"
+            class="calculate-btn"
+          >
+            Hitung
+          </button>
+          <div class="result" id="resultSquarePerimeter"></div>
+        </section>
+
+        <section
+          class="calculator"
+          id="RectangleArea"
+          data-section="RectangleArea"
+        >
+          <h2>Luas Persegi Panjang</h2>
+          <img src="./img/Persegi Panjang.png" class="img-rectangle" alt="" />
+          <p>L = Panjang * Lebar</p>
           <input
             type="text"
-            id="side"
             class="input-field"
-            placeholder="Masukkan Sisi"
+            placeholder="Masukkan Panjang"
           />
-          <button onclick="calculate()" class="calculate-btn">Hitung</button>
-          <div class="result" id="result"></div>
+          <input type="text" class="input-field" placeholder="Masukkan Lebar" />
+          <button
+            onclick="calculate('RectangleArea', 'areaRectangle')"
+            class="calculate-btn"
+          >
+            Hitung
+          </button>
+          <div class="result" id="resultRectangleArea"></div>
+        </section>
+
+        <section
+          class="calculator"
+          id="RectanglePerimeter"
+          data-section="RectanglePerimeter"
+        >
+          <h2>Keliling Persegi Panjang</h2>
+          <img src="./img/Persegi Panjang.png" class="img-rectangle" alt="" />
+          <p>K = 2 * ( Panjang + Lebar )</p>
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Masukkan Panjang"
+          />
+          <input type="text" class="input-field" placeholder="Masukkan Lebar" />
+          <button
+            onclick="calculate('RectanglePerimeter', 'perimeterRectangle')"
+            class="calculate-btn"
+          >
+            Hitung
+          </button>
+          <div class="result" id="resultRectanglePerimeter"></div>
         </section>
       </div>
     </main>
